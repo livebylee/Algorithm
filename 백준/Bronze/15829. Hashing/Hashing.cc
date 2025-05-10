@@ -11,14 +11,14 @@ int main(){
 
     cin >> n; 
     long long value = 0;
+    long long cal = 1;
     for(int i = 0; i< n; i++){
         char c;
         cin >> c;
         int now = c-'a'+1;
-        for(int j = 0; j< i; j++){
-            now = (now * 31) % 1234567891;
-        }
+        now = (now * cal) % 1234567891;
+        cal = (cal * 31)  % 1234567891;
         value += now  % 1234567891;
     }
-    cout << value;
+    cout << value  % 1234567891;
 }
